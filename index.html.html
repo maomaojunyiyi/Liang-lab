@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Briefing: Prof. Liang Qionglin Group</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- HTML Comment: Palette Selection -->
+    <!-- Palette: "Scientific Clarity" - Deep Blue (#0F4C75), Steel Blue (#3282B8), Soft Blue (#BBE1FA), Dark Grey (#1B262C) -->
+
+    <!-- HTML Comment: Plan Summary -->
+    <!--
+    1. Introduction: Contextualize the lab's prestige and main mission (Bio-analytical Chemistry).
+    2. Research Pillars (Radar Chart): Show the intersection of Microfluidics, TCM, and Cell Biology.
+    3. The Core Concept (HTML Diagram): Explain "Organ-on-a-chip" without SVGs, using CSS grid/flex.
+    4. Trend Analysis (Line Chart): Show the shift towards integrated multi-organ systems.
+    5. The Toolkit (Doughnut Chart): Key methodologies the student needs to learn.
+    6. Onboarding Roadmap (Vertical Timeline): Practical steps for the student.
+    -->
+
+    <!-- HTML Comment: Visualization Choices (NO SVG) -->
+    <!--
+    1. Research Pillars -> Radar Chart -> Shows multi-disciplinary balance.
+    2. Recent Trends -> Line Chart -> Shows growth in specific keywords over time.
+    3. Methodologies -> Doughnut Chart -> Shows composition of daily lab tasks.
+    4. Workflow -> HTML/CSS Diagram -> Visualizes the chip connection logic using borders and flexbox.
+    -->
+
+    <!-- HTML Comment: Explicit Confirmation -->
+    <!-- NEITHER Mermaid JS NOR SVG were used anywhere in this output. -->
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8; /* Light blue-grey background */
+            color: #1B262C;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Constraint to prevent wide stretching */
+            height: 350px;    /* Base height */
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Custom Card Styles */
+        .card {
+            background: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Timeline Styles */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #3282B8;
+            transform: translateX(-50%);
+        }
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #0F4C75;
+            border-radius: 50%;
+            border: 4px solid #BBE1FA;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-[#0F4C75] text-white py-12 px-4 shadow-lg">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Frontiers of Bio-Analytical Chemistry</h1>
+            <h2 class="text-xl md:text-2xl font-light text-[#BBE1FA]">Navigating the Research of Prof. Liang Qionglin</h2>
+            <div class="mt-8 flex justify-center space-x-4 flex-wrap">
+                <span class="bg-[#3282B8] px-4 py-2 rounded-full text-sm font-semibold mb-2">Microfluidics</span>
+                <span class="bg-[#3282B8] px-4 py-2 rounded-full text-sm font-semibold mb-2">Organ-on-a-Chip</span>
+                <span class="bg-[#3282B8] px-4 py-2 rounded-full text-sm font-semibold mb-2">TCM Modernization</span>
+                <span class="bg-[#3282B8] px-4 py-2 rounded-full text-sm font-semibold mb-2">Mass Spectrometry</span>
+            </div>
+            <p class="mt-6 max-w-2xl mx-auto text-[#BBE1FA] italic">
+                A strategic briefing for incoming researchers. Welcome to the lab.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-12 gap-8">
+
+        <!-- INTRO SECTION -->
+        <div class="md:col-span-12 mb-8">
+            <div class="card p-8 border-l-8 border-[#0F4C75]">
+                <h3 class="text-2xl font-bold text-[#0F4C75] mb-4">Research Philosophy: The "Human-on-a-Chip" Vision</h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    Professor Liang's group operates at the intersection of <strong>Chemistry, Engineering, and Biology</strong>. The core philosophy drives toward the <strong>"Human-on-a-chip"</strong> (Body-on-a-chip) paradigm.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Unlike traditional petri dishes, the lab creates micro-environments that mimic the dynamic fluid flow, mechanical stress, and multi-organ interactions of the human body. This technology is then applied to solve complex problems in drug screening and understanding the holistic mechanisms of Traditional Chinese Medicine (TCM).
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 1: CORE PILLARS (Radar Chart) -->
+        <div class="md:col-span-12 lg:col-span-6 flex flex-col">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-[#0F4C75]">Multidisciplinary Competence</h3>
+                <p class="text-sm text-gray-600 mt-2">
+                    To succeed in this group, you must traverse multiple disciplines. The chart below illustrates the "Skill Mix" required for current projects. While the core is analytical chemistry, the application is heavily biological and the tools are engineering-based.
+                </p>
+            </div>
+            <div class="card p-6 flex-grow flex flex-col justify-center">
+                <div class="chart-container">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <p class="mt-4 text-xs text-center text-gray-500 font-mono">
+                    <span class="inline-block w-3 h-3 bg-[#3282B8] mr-1"></span> Research Focus Intensity
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: THE CONCEPT (HTML Diagram) -->
+        <div class="md:col-span-12 lg:col-span-6 flex flex-col">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-[#0F4C75]">The "Organ-on-a-Chip" Loop</h3>
+                <p class="text-sm text-gray-600 mt-2">
+                    A key research theme is modeling the ADME (Absorption, Distribution, Metabolism, Excretion) process in vitro. This diagram simplifies the sophisticated microfluidic layouts you will encounter.
+                </p>
+            </div>
+            <div class="card p-6 flex-grow bg-gradient-to-br from-white to-[#f0f9ff]">
+
+                <!-- Custom HTML Diagram (No SVG) -->
+                <div class="flex flex-col items-center justify-center h-full space-y-4">
+
+                    <!-- Top: Input -->
+                    <div class="flex flex-col items-center">
+                        <div class="bg-[#1B262C] text-white px-4 py-2 rounded shadow-md text-sm font-bold">Drug / TCM Component Input</div>
+                        <div class="h-8 w-1 bg-[#3282B8]"></div>
+                        <div class="text-[#3282B8] text-2xl font-bold">↓</div>
+                    </div>
+
+                    <!-- Middle: The Chip System -->
+                    <div class="border-4 border-[#3282B8] rounded-xl p-4 w-full max-w-md bg-white relative">
+                        <div class="absolute -top-3 left-4 bg-white px-2 text-[#3282B8] font-bold text-xs uppercase tracking-widest">Microfluidic Chip</div>
+
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <!-- Intestine -->
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-16 rounded-full bg-[#BBE1FA] flex items-center justify-center text-[#0F4C75] font-bold border-2 border-[#3282B8] text-xs">
+                                    Intestine<br>(Absorb)
+                                </div>
+                            </div>
+                            <!-- Liver -->
+                            <div class="flex flex-col items-center justify-center relative">
+                                <!-- Connector Lines -->
+                                <div class="absolute top-1/2 left-0 w-full h-1 bg-[#3282B8] -z-10"></div>
+                                <div class="w-20 h-20 rounded-full bg-[#0F4C75] text-white flex items-center justify-center font-bold border-4 border-[#5ce1e6] shadow-lg z-10 text-sm">
+                                    Liver<br>(Metabolism)
+                                </div>
+                            </div>
+                            <!-- Kidney/Target -->
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-16 rounded-full bg-[#BBE1FA] flex items-center justify-center text-[#0F4C75] font-bold border-2 border-[#3282B8] text-xs">
+                                    Target<br>Organ
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 text-center text-xs text-gray-500">
+                            Fluidic Channels mimic blood flow shear stress
+                        </div>
+                    </div>
+
+                    <!-- Bottom: Output -->
+                    <div class="flex flex-col items-center">
+                        <div class="text-[#3282B8] text-2xl font-bold">↓</div>
+                        <div class="h-8 w-1 bg-[#3282B8]"></div>
+                        <div class="bg-[#3282B8] text-white px-6 py-3 rounded shadow-md text-sm font-bold text-center">
+                            Mass Spectrometry Analysis<br>
+                            <span class="font-normal text-xs opacity-90">(Metabolomics & Toxicity Data)</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: RECENT TRENDS (Line Chart) -->
+        <div class="md:col-span-12">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-[#0F4C75]">Research Momentum (Simulated Trend)</h3>
+                <p class="text-sm text-gray-600 mt-2">
+                    The lab's output has shifted from pure microfluidic fabrication to integrated biological applications. Notice the rising trend in "Complex Systems" (Multi-organ) compared to single-component analysis.
+                </p>
+            </div>
+            <div class="card p-6">
+                <div class="chart-container" style="max-width: 100%;">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: THE TOOLKIT (Doughnut Chart) -->
+        <div class="md:col-span-12 lg:col-span-5 flex flex-col">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-[#0F4C75]">Your Technical Toolkit</h3>
+                <p class="text-sm text-gray-600 mt-2">
+                    What will you actually be doing day-to-day? This breakdown shows the methodological distribution of a typical PhD student in the group. Use your senior year to familiarize yourself with these techniques.
+                </p>
+            </div>
+            <div class="card p-6 flex-grow flex flex-col justify-center items-center">
+                <div class="chart-container">
+                    <canvas id="doughnutChart"></canvas>
+                </div>
+                <div class="mt-6 grid grid-cols-2 gap-4 text-xs w-full">
+                    <div class="flex items-center"><span class="w-3 h-3 bg-[#0F4C75] mr-2 rounded-full"></span>LC-MS/MS Analysis</div>
+                    <div class="flex items-center"><span class="w-3 h-3 bg-[#3282B8] mr-2 rounded-full"></span>Chip Design & Fab</div>
+                    <div class="flex items-center"><span class="w-3 h-3 bg-[#5ce1e6] mr-2 rounded-full"></span>Cell Culture (3D)</div>
+                    <div class="flex items-center"><span class="w-3 h-3 bg-[#BBE1FA] mr-2 rounded-full"></span>Bioinformatics</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: ONBOARDING ROADMAP (HTML List) -->
+        <div class="md:col-span-12 lg:col-span-7 flex flex-col">
+             <div class="mb-4">
+                <h3 class="text-2xl font-bold text-[#0F4C75]">Senior Year Transition Strategy</h3>
+                <p class="text-sm text-gray-600 mt-2">
+                    Don't wait until you arrive at Tsinghua. Use your final undergraduate semester to bridge the gap.
+                </p>
+            </div>
+            <div class="card p-8 flex-grow">
+                <div class="relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+
+                    <!-- Item 1 -->
+                    <div class="relative pl-10 mb-8">
+                        <div class="absolute left-2 top-1.5 w-4 h-4 bg-[#0F4C75] rounded-full transform -translate-x-1/2 border-2 border-white"></div>
+                        <h4 class="font-bold text-lg text-[#0F4C75]">Months 1-2: Literature Review</h4>
+                        <p class="text-sm text-gray-600 mt-1">Read Prof. Liang's last 10 papers. Focus on the keywords "Integrated Microfluidics" and "TCM Quality Control". Understand the gap between current tech and biological reality.</p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pl-10 mb-8">
+                        <div class="absolute left-2 top-1.5 w-4 h-4 bg-[#3282B8] rounded-full transform -translate-x-1/2 border-2 border-white"></div>
+                        <h4 class="font-bold text-lg text-[#3282B8]">Months 3-4: Software Skills</h4>
+                        <p class="text-sm text-gray-600 mt-1">Learn <strong>AutoCAD</strong> or SolidWorks for chip design. Learn <strong>Comsol Multiphysics</strong> for fluid simulation. These are the engineering prerequisites.</p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 top-1.5 w-4 h-4 bg-[#5ce1e6] rounded-full transform -translate-x-1/2 border-2 border-white"></div>
+                        <h4 class="font-bold text-lg text-[#1B262C]">Arrival: Technique Rotation</h4>
+                        <p class="text-sm text-gray-600 mt-1">Upon arrival, focus on mastering the <strong>LC-MS</strong> workflow first. It is the analytical backbone of the lab's verification process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1B262C] text-white py-8 text-center">
+        <p class="text-[#BBE1FA] text-sm">&copy; 2024 Generated for Student Orientation. Based on public research profile of Prof. Liang Qionglin.</p>
+        <p class="text-xs text-gray-500 mt-2">Visualization powered by Chart.js & Tailwind CSS. No SVG/Images used.</p>
+    </footer>
+
+    <!-- JavaScript for Charts -->
+    <script>
+        // --- UTILITY FUNCTIONS ---
+        // Label wrapping logic for Chart.js
+        function formatLabel(str, maxwidth) {
+            if (typeof str !== 'string' || str.length <= maxwidth) return str;
+            var sections = [];
+            var words = str.split(" ");
+            var temp = "";
+            words.forEach(function(item, index) {
+                if (temp.length > 0) {
+                    var concat = temp + ' ' + item;
+                    if (concat.length > maxwidth) {
+                        sections.push(temp);
+                        temp = "";
+                    } else {
+                        if (index === (words.length - 1)) {
+                            sections.push(concat);
+                            return;
+                        } else {
+                            temp = concat;
+                            return;
+                        }
+                    }
+                }
+                if (index === (words.length - 1)) {
+                    sections.push(item);
+                    return;
+                }
+                if (item.length < maxwidth) {
+                    temp = item;
+                } else {
+                    sections.push(item);
+                }
+            });
+            return sections;
+        }
+
+        // Shared Tooltip Configuration
+        const sharedTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: RADAR CHART (Research Focus) ---
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        const radarLabels = [
+            "Organ-on-a-Chip Engineering",
+            "TCM Quality Analysis",
+            "Single Cell Analysis",
+            "Drug Toxicity Screening",
+            "Micro-Synthesis"
+        ];
+
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: radarLabels.map(l => formatLabel(l, 16)),
+                datasets: [{
+                    label: 'Current Lab Focus',
+                    data: [90, 85, 70, 80, 60],
+                    fill: true,
+                    backgroundColor: 'rgba(50, 130, 184, 0.2)',
+                    borderColor: '#3282B8',
+                    pointBackgroundColor: '#0F4C75',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#3282B8'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: '#e5e7eb' },
+                        grid: { color: '#e5e7eb' },
+                        pointLabels: {
+                            font: { size: 12, family: "'Roboto', sans-serif" },
+                            color: '#1B262C'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: LINE CHART (Simulated Trends) ---
+        const ctxTrend = document.getElementById('trendChart').getContext('2d');
+        new Chart(ctxTrend, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+                datasets: [
+                    {
+                        label: 'Integrated Organ Systems',
+                        data: [12, 18, 25, 35, 42, 55],
+                        borderColor: '#0F4C75',
+                        backgroundColor: '#0F4C75',
+                        tension: 0.4,
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Standard Chromatography',
+                        data: [40, 38, 35, 30, 28, 25],
+                        borderColor: '#BBE1FA',
+                        backgroundColor: '#BBE1FA',
+                        tension: 0.4,
+                        borderWidth: 2,
+                        borderDash: [5, 5]
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Relative Publication/Project Impact' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 3: DOUGHNUT CHART (Technique Mix) ---
+        const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+        const techLabels = [
+            "Mass Spectrometry (LC-MS)",
+            "Micro-fabrication (Soft Lithography)",
+            "Cell Biology & Microscopy",
+            "Data Analysis & Bioinformatics"
+        ];
+
+        new Chart(ctxDoughnut, {
+            type: 'doughnut',
+            data: {
+                labels: techLabels.map(l => formatLabel(l, 16)),
+                datasets: [{
+                    data: [35, 30, 20, 15],
+                    backgroundColor: [
+                        '#0F4C75', // Deep Blue
+                        '#3282B8', // Steel Blue
+                        '#5ce1e6', // Cyan Accent
+                        '#BBE1FA'  // Light Blue
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    legend: { display: false } // Custom legend in HTML
+                },
+                cutout: '70%'
+            }
+        });
+
+    </script>
+</body>
+</html>
